@@ -1,7 +1,7 @@
 apiVersion: config.porch.kpt.dev/v1alpha1
 kind: PackageVariant
 metadata: # kpt-merge: /example-kindnet
-  name: example-kindnet
+  name: nephio-workload-cluster-kindnet
   annotations:
     internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-kindnet'
 spec:
@@ -13,10 +13,10 @@ spec:
     repo: nephio-example-packages
     revision: v1
   downstream:
-    package: example-kindnet
+    package: nephio-workload-cluster-kindnet
     repo: mgmt-staging
   pipeline:
     mutators:
     - image: gcr.io/kpt-fn/set-annotations:v0.1.4
       configMap:
-        nephio.org/cluster-name: example
+        nephio.org/cluster-name: nephio-workload-cluster

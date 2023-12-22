@@ -1,7 +1,7 @@
 apiVersion: config.porch.kpt.dev/v1alpha1
 kind: PackageVariant
 metadata: # kpt-merge: /example-repo
-  name: example-repo
+  name: nephio-workload-cluster-repo
   annotations:
     internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-repo'
 spec:
@@ -13,13 +13,13 @@ spec:
     repo: nephio-example-packages
     revision: v3
   downstream:
-    package: example-repo
+    package: nephio-workload-cluster-repo
     repo: mgmt
   injectors:
   - kind: WorkloadCluster
-    name: example
+    name: nephio-workload-cluster
   pipeline:
     mutators:
     - image: gcr.io/kpt-fn/set-annotations:v0.1.4
       configMap:
-        nephio.org/cluster-name: example
+        nephio.org/cluster-name: nephio-workload-cluster

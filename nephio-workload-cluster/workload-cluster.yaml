@@ -1,13 +1,13 @@
 apiVersion: infra.nephio.org/v1alpha1
 kind: WorkloadCluster
 metadata: # kpt-merge: /example
-  name: example
+  name: nephio-workload-cluster
   annotations:
     internal.kpt.dev/upstream-identifier: 'infra.nephio.org|WorkloadCluster|default|example'
 spec:
   # Since injection only injects the spec, we need the name here as
   # well as in metadata.
-  clusterName: example
+  clusterName: nephio-workload-cluster
   cnis:
   - macvlan
   - ipvlan
