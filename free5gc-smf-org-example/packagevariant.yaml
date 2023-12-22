@@ -1,0 +1,44 @@
+apiVersion: config.porch.kpt.dev/v1alpha1
+kind: PackageVariant
+metadata: # kpt-merge: /free5g-smf-regional
+  name: free5g-smf-regional
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|free5g-smf-regional'
+spec:
+  upstream:
+    repo: free5gc-packages
+    package: pkg-example-smf-bp
+    revision: v1
+  downstream:
+    repo: org-nf-catalog
+    package: free5gc-smf
+  labels:
+    'example.com/vendor': free5gc
+    'example.com/package-content': network-function
+    'example.com/nf-type': smf
+    'example.com/contact': "nf-platform-team@example.com"
+  annotations:
+    'example.com/vendor': free5gc
+    'example.com/package-content': network-function
+  packageContext:
+    data:
+      contact-email: "nf-platform-team@example.com"
+    removeKeys:
+    - free5gc
+    - smf
+  adoptionPolicy: "adoptExisting"
+  deletionPolicy: "adoptNone"
+  pipeline:
+    validators:
+    - image: gcr.io/kpt-fn/kubeval:v0.3
+    mutators:
+    - image: gcr.io/kpt-fn/set-labels:v0.1
+      configPath: testConfig
+      name: smf
+      configMap:
+        env: dev
+  injectors:
+    group: free5gc-packages
+    version: v1
+    kind: free5gc
+    name: free5g-smf-regional
