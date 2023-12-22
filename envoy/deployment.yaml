@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: # kpt-merge: envoy/envoy
+  name: envoy
+  namespace: envoy
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'apps|Deployment|envoy|envoy'
+spec:
+  selector:
+    matchLabels:
+      app: envoy
+  template:
+    metadata:
+      labels:
+        app: envoy
+    spec:
+      containers:
+      - name: envoy
+        image: envoyproxy/envoy:distroless-v1.27.0
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 10000
