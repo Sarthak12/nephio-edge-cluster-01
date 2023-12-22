@@ -1,7 +1,7 @@
 apiVersion: config.porch.kpt.dev/v1alpha1
 kind: PackageVariant
 metadata: # kpt-merge: /example-local-path-provisioner
-  name: nephio-workload-cluster-local-path-provisioner
+  name: nephio-workload-cluster-workload-cluster-local-path-provisioner
   annotations:
     internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-local-path-provisioner'
 spec:
@@ -13,7 +13,7 @@ spec:
     repo: nephio-example-packages
     revision: v1
   downstream:
-    package: nephio-workload-cluster-local-path-provisioner
+    package: nephio-workload-cluster-workload-cluster-local-path-provisioner
     repo: mgmt-staging
   pipeline:
     mutators:

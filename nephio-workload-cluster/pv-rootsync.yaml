@@ -1,7 +1,7 @@
 apiVersion: config.porch.kpt.dev/v1alpha1
 kind: PackageVariant
 metadata: # kpt-merge: /example-rootsync
-  name: nephio-workload-cluster-rootsync
+  name: nephio-workload-cluster-workload-cluster-rootsync
   annotations:
     internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-rootsync'
 spec:
@@ -13,7 +13,7 @@ spec:
     repo: nephio-example-packages
     revision: v3
   downstream:
-    package: nephio-workload-cluster-rootsync
+    package: nephio-workload-cluster-workload-cluster-rootsync
     repo: mgmt-staging
   injectors:
   - kind: WorkloadCluster

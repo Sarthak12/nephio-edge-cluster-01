@@ -1,7 +1,7 @@
 apiVersion: config.porch.kpt.dev/v1alpha1
 kind: PackageVariant
 metadata: # kpt-merge: /example-multus
-  name: nephio-workload-cluster-multus
+  name: nephio-workload-cluster-workload-cluster-multus
   annotations:
     internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-multus'
 spec:
@@ -13,7 +13,7 @@ spec:
     repo: nephio-example-packages
     revision: v1
   downstream:
-    package: nephio-workload-cluster-multus
+    package: nephio-workload-cluster-workload-cluster-multus
     repo: mgmt-staging
   pipeline:
     mutators:

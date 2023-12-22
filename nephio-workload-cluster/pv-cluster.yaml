@@ -1,7 +1,7 @@
 apiVersion: config.porch.kpt.dev/v1alpha1
 kind: PackageVariant
 metadata: # kpt-merge: /example-cluster
-  name: nephio-workload-cluster-cluster
+  name: nephio-workload-cluster-workload-cluster-cluster
   annotations:
     internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-cluster'
 spec:
@@ -13,7 +13,7 @@ spec:
     repo: nephio-example-packages
     revision: v5
   downstream:
-    package: nephio-workload-cluster-cluster
+    package: nephio-workload-cluster-workload-cluster-cluster
     repo: mgmt
   injectors:
   - kind: WorkloadCluster

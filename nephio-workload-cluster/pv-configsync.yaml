@@ -1,7 +1,7 @@
 apiVersion: config.porch.kpt.dev/v1alpha1
 kind: PackageVariant
 metadata: # kpt-merge: /example-configsync
-  name: nephio-workload-cluster-configsync
+  name: nephio-workload-cluster-workload-cluster-configsync
   annotations:
     internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-configsync'
 spec:
@@ -13,7 +13,7 @@ spec:
     repo: nephio-example-packages
     revision: v1
   downstream:
-    package: nephio-workload-cluster-configsync
+    package: nephio-workload-cluster-workload-cluster-configsync
     repo: mgmt-staging
   pipeline:
     mutators:
