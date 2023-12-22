@@ -4,7 +4,7 @@ metadata: # kpt-merge: /free5gc-smf-org-example
   name: free5gc-smf-org-example
   annotations:
     config.kubernetes.io/local-config: "true"
-    internal.kpt.dev/upstream-identifier: 'kpt.dev|Kptfile|default|free5gc-smf-org-example'
+    internal.kpt.dev/upstream-identifier: kpt.dev|Kptfile|default|free5gc-smf-org-example
 upstream:
   type: git
   git:
@@ -19,4 +19,4 @@ upstreamLock:
     ref: free5gc-smf-org-example/v2
     commit: 654b96c189e7962f72f3116b7a026e3a18b44769
 info:
-  description: Example package showing how a PackageVariant can be used to do systematic updates to a vendor package, creating an organizational package.
+  description: "Example package showing how a PackageVariant can be used to do systematic updates to a vendor package, creating an organizational package."
