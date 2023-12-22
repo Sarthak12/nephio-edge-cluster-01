@@ -1,0 +1,22 @@
+apiVersion: config.porch.kpt.dev/v1alpha1
+kind: PackageVariant
+metadata: # kpt-merge: /example-configsync
+  name: example-configsync
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-configsync'
+spec:
+  annotations:
+    approval.nephio.org/policy: initial
+    approval.nephio.org/delay: 2m
+  upstream:
+    package: configsync
+    repo: nephio-example-packages
+    revision: v1
+  downstream:
+    package: example-configsync
+    repo: mgmt-staging
+  pipeline:
+    mutators:
+    - image: gcr.io/kpt-fn/set-annotations:v0.1.4
+      configMap:
+        nephio.org/cluster-name: example

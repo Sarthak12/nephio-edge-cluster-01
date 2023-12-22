@@ -1,0 +1,22 @@
+apiVersion: config.porch.kpt.dev/v1alpha1
+kind: PackageVariant
+metadata: # kpt-merge: /example-kindnet
+  name: example-kindnet
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-kindnet'
+spec:
+  annotations:
+    approval.nephio.org/policy: initial
+    approval.nephio.org/delay: 2m
+  upstream:
+    package: kindnet
+    repo: nephio-example-packages
+    revision: v1
+  downstream:
+    package: example-kindnet
+    repo: mgmt-staging
+  pipeline:
+    mutators:
+    - image: gcr.io/kpt-fn/set-annotations:v0.1.4
+      configMap:
+        nephio.org/cluster-name: example

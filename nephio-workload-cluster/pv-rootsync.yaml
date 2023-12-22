@@ -1,0 +1,25 @@
+apiVersion: config.porch.kpt.dev/v1alpha1
+kind: PackageVariant
+metadata: # kpt-merge: /example-rootsync
+  name: example-rootsync
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-rootsync'
+spec:
+  annotations:
+    approval.nephio.org/policy: initial
+    approval.nephio.org/delay: 2m
+  upstream:
+    package: rootsync
+    repo: nephio-example-packages
+    revision: v3
+  downstream:
+    package: example-rootsync
+    repo: mgmt-staging
+  injectors:
+  - kind: WorkloadCluster
+    name: example
+  pipeline:
+    mutators:
+    - image: gcr.io/kpt-fn/set-annotations:v0.1.4
+      configMap:
+        nephio.org/cluster-name: example
