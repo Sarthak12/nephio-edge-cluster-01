@@ -40,10 +40,10 @@ status:
   - type: nephio.org.Specializer.specialize
     status: "False"
     reason: Failed
-    message: "spec invalid: mandatory field ClusterName is missing from WorkloadCluster"
+    message: 'spec invalid: mandatory field ClusterName is missing from WorkloadCluster'
   - type: req.nephio.org/v1alpha1.Interface.n2
     status: "False"
-    message: "spec invalid: mandatory field ClusterName is missing from WorkloadCluster"
+    message: 'spec invalid: mandatory field ClusterName is missing from WorkloadCluster'
   - type: req.nephio.org/v1alpha1.Interface.n3
     status: "False"
-    message: "spec invalid: mandatory field ClusterName is missing from WorkloadCluster"
+    message: 'spec invalid: mandatory field ClusterName is missing from WorkloadCluster'
